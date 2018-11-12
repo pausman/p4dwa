@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBoatsTable extends Migration
+class CreateScheduleTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,11 @@ class CreateBoatsTable extends Migration
      */
     public function up()
     {
-        Schema::create('boats', function (Blueprint $table) {
+        Schema::create('schedule', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            # fields particular for table
-            $table ->enum('departure_location',['Mainland','Service Dock']);
-            $table ->time('departure_time');
-            $table ->enum('boat_name',['Ark','LBH','Whaler']);
-
+            $table->enum('departure_location',['Mainland','Service Dock']);
+            $table->time('departure_time');
         });
     }
 
@@ -31,6 +28,6 @@ class CreateBoatsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('boats');
+        Schema::dropIfExists('schedule');
     }
 }
