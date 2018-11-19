@@ -1,6 +1,7 @@
 <?php
 
 use App\Visitor;
+use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;
 
 class VisitorsTableSeeder extends Seeder
