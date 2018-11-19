@@ -11,6 +11,7 @@
 |
 */
 
+
 Route::get('/', function () {
     return view('index');
 });
@@ -40,3 +41,5 @@ Route::get('/debug', function () {
 
     dump($debug);
 });
+
+Route::any('/practice/{n?}', 'PracticeController@index');

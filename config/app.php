@@ -27,7 +27,10 @@ return [
     */
 
     'env' => env('APP_ENV', 'production'),
-
+    'nav' => [
+        '/' => 'Home',
+        '/practice' => 'Practice',
+    ],
     /*
     |--------------------------------------------------------------------------
     | Application Debug Mode
@@ -146,6 +149,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
 
         /*
          * Package Service Providers...
