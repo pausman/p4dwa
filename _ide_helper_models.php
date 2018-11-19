@@ -49,6 +49,17 @@ namespace App{
 
 namespace App{
 /**
+ * App\Manifest
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Manifest newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Manifest newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Manifest query()
+ */
+	class Manifest extends \Eloquent {}
+}
+
+namespace App{
+/**
  * App\Schedule
  *
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Schedule newModelQuery()
