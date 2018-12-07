@@ -15,4 +15,9 @@ use Illuminate\Database\Eloquent\Model;
 class Visitor extends Model
 {
     //
+    public function schedules()
+    {
+        # withTimestamps will ensure the pivot table has its created_at/updated_at fields automatically maintained
+        return $this->belongsToMany('App\Schedule')->withTimestamps();
+    }
 }

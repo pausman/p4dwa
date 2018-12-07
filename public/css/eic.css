@@ -1,0 +1,48 @@
+/* a little css  to improve it visually */
+
+body {
+    font-family: "Georgia", "Arial", sans-serif;
+}
+
+#encodedResults, #validatedErrors, #theButton {
+    margin-top: 12px;
+    margin-bottom: 10px;
+}
+
+textarea {
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+footer {
+    text-align: center;
+    color: teal;
+}
+
+/* color the jumbotron */
+.jumbotron {
+    background-color: #D4DDF7;
+}
+
+/* shrink the alert box */
+.alert {
+    padding-bottom: 0;
+    padding-top: 0;
+}
+
+div {
+    text-align: left;ß
+}
+
+
+
+
+
+
+
+
+
+
+
+

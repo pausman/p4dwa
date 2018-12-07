@@ -19,7 +19,6 @@ class VisitorsTableSeeder extends Seeder
             $visitor->group_leader_name = $faker->name;
             $visitor->email = $faker->email;
             $visitor->group_size = $faker->numberBetween($min = 1, $max = 10);
-            $visitor->need_a_boat_ride = $faker->boolean($chanceOfGettingTrue = 90);
             $visitor->save();
         }
     }

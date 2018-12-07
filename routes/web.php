@@ -12,9 +12,26 @@
 */
 
 
-Route::get('/', function () {
-    return view('index');
+Route::view('/','index');
+
+
+
+// schedule routes
+Route::get('/schedules','ScheduleController@index');
+Route::post('/schedules','ScheduleController@store');
+Route::get('/schedules/create','ScheduleController@create');
+
+// Visitor routes
+Route::get('/visitors','VisitorController@index');
+Route::post('/visitors','VisitorController@store');
+Route::get('/visitors/create','VisitorController@create');
+
+
+// about route
+Route::get('eichome', function () {
+    return Redirect::to('http://www.eagleisland.org');
 });
+
 
 Route::get('/debug', function () {
 

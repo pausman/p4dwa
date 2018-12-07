@@ -29,7 +29,9 @@ return [
     'env' => env('APP_ENV', 'production'),
     'nav' => [
         '/' => 'Home',
-        '/practice' => 'Practice',
+        '/schedules' => 'Schedules',
+        '/visitors' => 'Visitors',
+        '/eichome' => 'About Eagle Island',
     ],
     /*
     |--------------------------------------------------------------------------

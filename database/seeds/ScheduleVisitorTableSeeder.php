@@ -1,11 +1,9 @@
 <?php
-
-use App\Manifest;
 use App\Schedule;
 use App\Visitor;
 use Illuminate\Database\Seeder;
 
-class ManifestsTableSeeder extends Seeder
+class ScheduleVisitorTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,8 +12,11 @@ class ManifestsTableSeeder extends Seeder
     public function run()
     {
         // get visitors that need a ride. Do the largest groups first.
-        $visitors = Visitor::where('need_a_boat_ride', '=', 1)->
-        orderBy('group_size','desc')->get();
+        $visitors = Visitor::orderBy('group_size', 'desc')->get();
+
+        // get all the schedule data to reduce the number of queries to the db
+        $allschedules = Schedule::all();
+        //
         // get a visitor
         foreach ($visitors as $visitor) {
             // $visitor->group_size is the capacity needed
@@ -24,11 +25,19 @@ class ManifestsTableSeeder extends Seeder
             $found_schedule = false;
 
             // find the boat runs from the mainland that has capacity. use the ones with less room to save room
-            // for big groups
-            $from_schedules = Schedule::
-            where('departure_location', '=', 'Mainland')->
-            where('remaining_capacity', '>=', $visitor->group_size)->
-            orderBy('remaining_capacity')->get();
+            // for big groups.
+            $groupsize = $visitor->group_size;
+            $from_schedules = $allschedules
+                ->where('departure_location', 'Mainland')
+                ->filter(function ($value, $key) use ($groupsize) {
+                    return $value->remaining_capacity > $groupsize;
+                })
+                ->sortBy('remaining_capacity');
+// previously made sql calls eliminated to make faster
+//            $from_schedules = Schedule::
+//            where('departure_location', '=', 'Mainland')->
+//            where('remaining_capacity', '>=', $visitor->group_size)->
+//            orderBy('remaining_capacity')->get();
 
             // are there any boats with room. If not I am just going to skip the record with a message
             if ($from_schedules->count() == 0) {
@@ -39,23 +48,27 @@ class ManifestsTableSeeder extends Seeder
                 foreach ($from_schedules as $from_schedule) {
                     if (!$found_schedule) {
                         // get the first record and use it. order by smallest capacity that works
-                        $to_schedule = Schedule::
-                        where('departure_location', '=', 'Service Dock')->
-                        where('remaining_capacity', '>=', $visitor->group_size)->
-                        where('departure_time', '>', $from_schedule->departure_time)->
-                        orderBy('remaining_capacity')->first();
+                        $departure_time = $from_schedule->departure_time;
+                        $to_schedule = $allschedules
+                            ->where('departure_location', 'Service Dock')
+                            ->filter(function ($value, $key) use ($groupsize) {
+                                return $value->remaining_capacity > $groupsize;
+                            })
+                            ->filter(function ($value, $key) use ($departure_time) {
+                                return $value->departure_time > $departure_time;
+                            })
+                            ->sortBy('remaining_capacity')->first();
+
                         $found_return = false;
                         // as long as there is one boat run available schedule it.
                         if ($to_schedule) {
                             $found_return = true;
 
-                            // add the record to manifest
-                            $manifest = new Manifest;
-                            $manifest->visitor_id = $visitor->id;
-                            $manifest->from_boat_id = $from_schedule->id;
-                            $manifest->to_boat_id = $to_schedule->id;
+                            // add the records to the pivot table
+                            $from_schedule->visitors()->save($visitor);
+                            $to_schedule->visitors()->save($visitor);
 
-                            $manifest->save();
+
                             // update capacity on to and from schedule
                             $from_schedule->remaining_capacity = $from_schedule->remaining_capacity - $visitor->group_size;
                             $from_schedule->save();

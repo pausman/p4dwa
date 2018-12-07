@@ -18,9 +18,7 @@ class CreateSchedulesTable extends Migration
             $table->timestamps();
             $table->enum('departure_location',['Mainland','Service Dock']);
             $table->time('departure_time');
-            $table->integer('boat_id')->unsigned();
             $table->integer('remaining_capacity');
-            $table->foreign('boat_id')->references('id')->on('boats');
         });
     }
 

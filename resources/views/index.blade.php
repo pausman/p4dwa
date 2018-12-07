@@ -2,5 +2,6 @@
 
 
 @section('content')
-    <h1>Main Page</h1>
+    <h1>EIC Visitor Day</h1>
+    <img src='/images/eic2.jpg' alt='The bridge' id="ccimage">
 @endsection

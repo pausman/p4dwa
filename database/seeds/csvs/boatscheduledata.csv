@@ -1,51 +1,35 @@
-,departure_location,departure_time,boat_id,remaining_capacity
-1,Mainland,08:00,1,17
-2,Service Dock,08:30,1,17
-3,Mainland,09:00,1,17
-4,Service Dock,09:30,1,17
-5,Mainland,10:00,1,17
-6,Service Dock,10:30,1,17
-7,Mainland,11:00,1,17
-8,Service Dock,11:30,1,17
-9,Mainland,12:00,1,17
-10,Service Dock,12:30,1,17
-11,Mainland,13:00,1,17
-12,Service Dock,13:30,1,17
-13,Mainland,14:00,1,17
-14,Service Dock,14:30,1,17
-15,Mainland,15:00,1,17
-16,Service Dock,15:30,1,17
-17,Mainland,16:00,1,17
-18,Service Dock,16:30,1,17
-19,Mainland,08:30,2,5
-20,Service Dock,08:45,2,5
-21,Mainland,09:00,2,5
-22,Service Dock,09:15,2,5
-23,Mainland,09:30,2,5
-24,Service Dock,09:45,2,5
-25,Mainland,10:00,2,5
-26,Service Dock,10:15,2,5
-27,Mainland,10:30,2,5
-28,Service Dock,10:45,2,5
-29,Mainland,11:00,2,5
-30,Service Dock,11:15,2,5
-31,Mainland,11:30,2,5
-32,Service Dock,11:45,2,5
-33,Mainland,12:00,2,5
-34,Service Dock,12:15,2,5
-35,Mainland,12:30,2,5
-36,Service Dock,12:45,2,5
-37,Mainland,13:00,2,5
-38,Service Dock,13:15,2,5
-39,Mainland,13:30,2,5
-40,Service Dock,13:45,2,5
-41,Mainland,14:00,2,5
-42,Service Dock,14:15,2,5
-43,Mainland,14:30,2,5
-44,Service Dock,14:45,2,5
-45,Mainland,15:00,2,5
-46,Service Dock,15:15,2,5
-47,Mainland,15:30,2,5
-48,Service Dock,15:45,2,5
-49,Mainland,16:00,2,5
-50,Service Dock,16:15,2,5
+departure_location,departure_time,remaining_capacity
+Mainland,08:00,15
+Service Dock,08:30,15
+Mainland,09:00,15
+Service Dock,09:30,15
+Mainland,10:00,15
+Service Dock,10:30,15
+Mainland,11:00,15
+Service Dock,11:30,15
+Mainland,12:00,15
+Service Dock,12:30,15
+Mainland,13:00,15
+Service Dock,13:30,15
+Mainland,14:00,15
+Service Dock,14:30,15
+Mainland,15:00,15
+Service Dock,15:30,15
+Mainland,16:00,15
+Service Dock,16:30,15
+Mainland,08:30,15
+Service Dock,09:00,15
+Mainland,09:30,15
+Service Dock,10:00,15
+Mainland,10:30,15
+Service Dock,11:00,15
+Mainland,11:30,15
+Service Dock,12:00,15
+Mainland,12:30,15
+Service Dock,13:00,15
+Mainland,13:30,15
+Service Dock,14:00,15
+Mainland,14:30,15
+Service Dock,15:00,15
+Mainland,15:30,15
+Service Dock,16:30,15

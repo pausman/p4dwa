@@ -19,7 +19,6 @@ class CreateVisitorsTable extends Migration
             $table->string('group_leader_name');
             $table->string('email');
             $table->integer('group_size');
-            $table->boolean('need_a_boat_ride');
         });
     }
 
