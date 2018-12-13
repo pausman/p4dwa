@@ -27,10 +27,14 @@ return [
     */
 
     'env' => env('APP_ENV', 'production'),
+    # Guest navigation links
     'nav' => [
+        '/register' => 'Register',
+        '/login' => 'Login',
+        '/eichome' => 'About Eagle Island',
+    ],
+    'nav1' => [
         '/' => 'Home',
-        '/schedules' => 'Schedules',
-        '/visitors' => 'Visitors',
         '/eichome' => 'About Eagle Island',
     ],
     /*
@@ -165,6 +169,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\ViewServiceProvider::class,
 
     ],
 

@@ -1,5 +1,6 @@
 <?php
 
+use App\User;
 use App\Visitor;
 use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;
@@ -14,12 +15,14 @@ class VisitorsTableSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create();
-        foreach (range(1, 25) as $i) {
+        $users = USER::all();
+        foreach ($users as $user) {
             $visitor = new Visitor();
-            $visitor->group_leader_name = $faker->name;
-            $visitor->email = $faker->email;
+            $visitor->group_name = $faker->lastName.' Family Group';
             $visitor->group_size = $faker->numberBetween($min = 1, $max = 10);
+            $visitor->user_id = $user->id;
             $visitor->save();
+
         }
     }
 }

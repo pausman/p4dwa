@@ -16,8 +16,7 @@ class CreateVisitorsTable extends Migration
         Schema::create('visitors', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            $table->string('group_leader_name');
-            $table->string('email');
+            $table->string('group_name');
             $table->integer('group_size');
         });
     }

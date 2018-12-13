@@ -36,4 +36,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function visitors()
+    {
+        return $this->hasMany('App\Visitor');
+    }
 }

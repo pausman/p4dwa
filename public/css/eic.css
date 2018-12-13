@@ -2,17 +2,16 @@
 
 body {
     font-family: "Georgia", "Arial", sans-serif;
+    font-size: 2.0rem;
+
 }
 
-#encodedResults, #validatedErrors, #theButton {
-    margin-top: 12px;
-    margin-bottom: 10px;
+.boats {
+    background-color: bisque;
 }
 
-textarea {
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
+.groupinfo {
+    background-color: beige;
 }
 
 footer {
@@ -25,14 +24,28 @@ footer {
     background-color: #D4DDF7;
 }
 
+.alertmsg {
+    color: red;
+}
 /* shrink the alert box */
 .alert {
     padding-bottom: 0;
     padding-top: 0;
 }
 
+/* validate error text
+ */
+.error {
+       color: deeppink;
+}
+
 div {
-    text-align: left;ß
+    text-align: left;
+}
+
+/* input type number does not allow size attribute */
+input[type=number] {
+    width: 60px;
 }
 
 
