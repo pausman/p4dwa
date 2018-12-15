@@ -10,38 +10,39 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/visitors/create', 'VisitorController@create');
 Route::group(['middleware' => 'auth'], function () {
-// Route for main home page
+// Route for main home page - view your reservation or create one
     Route::get('/', 'VisitorController@index');
+    Route::get('/visitors', 'VisitorController@index');
 
 // Route to show routes for a user
     Route::get('/visitors/{id}', 'VisitorController@show');
 
 // edit routes
-    # Edit a book
+    # Edit a reservation
     Route::get('/visitors/{id}/edit', 'VisitorController@edit');  // get the data to edit
     Route::put('/visitors/{id}', 'VisitorController@update');  // update function
 
-// schedule routes if we ever build admin
-#Route::get('/schedules','ScheduleController@index');
-#Route::post('/schedules','ScheduleController@store');
-#Route::get('/schedules/create','ScheduleController@create');
+    # Delete a reservation
+    Route::get('/visitors/{id}/delete', 'VisitorController@delete');
+    Route::delete('/visitors/{id}', 'VisitorController@destroy');
 
-// Visitor routes
-// get a particular reservation  /visitors/id -> visitors.show
+# create reservation
 
-Route::get('/visitors','VisitorController@index');
-Route::post('/visitors','VisitorController@store');
-Route::get('/visitors/create','VisitorController@create');
+    Route::post('/visitors', 'VisitorController@store');
+
+#
+
+
 
 
 // about route
-Route::get('eichome', function () {
-    return Redirect::to('http://www.eagleisland.org');
-});
+    Route::get('eichome', function () {
+        return Redirect::to('http://www.eagleisland.org');
+    });
 
 
-
-Route::any('/practice/{n?}', 'PracticeController@index');
 });
 Auth::routes();

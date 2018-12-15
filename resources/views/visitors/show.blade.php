@@ -3,7 +3,7 @@
 
 @section('content')
 
-    <h2> Your Reservation for EIC Visitor Day </h2>
+    <h2> Welcome to the Reservation System for EIC Visitor Day </h2>
 
     @foreach ($visitors as $visitor)
         <div class="panel-group">

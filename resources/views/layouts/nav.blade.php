@@ -12,15 +12,7 @@
             @endforeach
 
 
-        @if(Auth::check())
-            <li class="nav-item">
-                <form  method='POST' id='logout' action='/logout'>
-                    {{ csrf_field() }}
-                    <a href='#'
-                       onClick='document.getElementById("logout").submit();'>Logout {{ $user->name }}</a>
-                </form>
-            </li>
-        @endif
+
         </ul>
     </div>
 </nav>

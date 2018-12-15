@@ -20,7 +20,11 @@
 <header>
     @include('layouts.nav')
 </header>
-
+@if(session('alert'))
+    <div class='alert'>
+        {{ session('alert') }}
+    </div>
+@endif
 
 {{--Main content section --}}
 
@@ -32,3 +36,15 @@
     </div>
 
 </section>
+
+{{--Footer--}}
+<div class="footer">
+    @if(Auth::check())
+            <form  method='POST' id='logout' action='/logout'>
+                {{ csrf_field() }}
+                <a href='#'
+                   onClick='document.getElementById("logout").submit();'>Logout {{ $user->name }}</a>
+            </form>
+
+    @endif
+</div>
