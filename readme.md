@@ -9,7 +9,7 @@ codepen.io -css
 ## Introduction
 * This application is a reservation system for Camp Eagle Island (known as EIC) Visitors Day which occurs every summer. The camp is located on an island in Upper Saranac Lake.  Arrival and departure for the event is done by a boat trip from and to the mainland dock located in Gilpin Bay.  Each boat trip has a limited capacity so this system attempts to manage more that just signing up for the event but to manage the capacity of each boat trip. 
 
-* The current website for EIC may be found at wwww.eagleisland.org 
+* The current website for EIC may be found at www.eagleisland.org 
 * The history of EIC may be found at https://en.wikipedia.org/wiki/Camp_Eagle_Island.
 
 ## Database
