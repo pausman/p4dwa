@@ -34,6 +34,9 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::post('/visitors', 'VisitorController@store');
 
+
+
+
 #
 
 
@@ -46,4 +49,8 @@ Route::group(['middleware' => 'auth'], function () {
 
 
 });
+/**
+* Practice
+*/
+Route::any('/practice/{n?}', 'PracticeController@index');
 Auth::routes();

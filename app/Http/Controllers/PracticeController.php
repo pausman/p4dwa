@@ -3,9 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Boat;
+use App\Visitor;
 
 class PracticeController extends Controller
 {
+    public function practice5()
+    {
+        $visitor = Visitor::where('group_name', '=', 'Klein Family Group')->first();
+
+            echo($visitor);
+
+
+    }
     //
     public function practice4()
     {

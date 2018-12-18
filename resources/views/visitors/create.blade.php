@@ -85,7 +85,7 @@
             <table class="table table-sm table-bordered table-striped">
                 <thead class="thead-dark">
                 <tr>
-                <th colspan="3">Schedule for reference</th>
+                    <th colspan="3">Schedule for reference</th>
                 </tr>
                 <tr>
                     <th scope="col">Departure Time</th>
@@ -102,6 +102,7 @@
                     </tr>
                 @endforeach
                 </tbody>
+            </table>
         </div>
     </div>
 @endsection
