@@ -35,6 +35,8 @@ return [
     ],
     'nav1' => [
         '/' => 'Home',
+        '/visitors/create' => 'Create Reservation',
+        '/visitors'  => 'View Reservation(s)',
         '/eichome' => 'About Eagle Island',
     ],
     /*

@@ -1,4 +1,5 @@
 <?php
+
 use App\Schedule;
 use App\Visitor;
 use Illuminate\Database\Seeder;
@@ -43,7 +44,6 @@ class ScheduleVisitorTableSeeder extends Seeder
             if ($from_schedules->count() == 0) {
                 echo('Could not find room from Mainland for ' . $visitor->group_leader_name . ' group of size ' . $visitor->group_size . PHP_EOL);
             } else {
-
                 // find room from the return trip- must be later than the arrival
                 foreach ($from_schedules as $from_schedule) {
                     if (!$found_schedule) {
@@ -67,7 +67,6 @@ class ScheduleVisitorTableSeeder extends Seeder
                             // add the records to the pivot table
                             $from_schedule->visitors()->save($visitor);
                             $to_schedule->visitors()->save($visitor);
-
 
                             // update capacity on to and from schedule
                             $from_schedule->remaining_capacity = $from_schedule->remaining_capacity - $visitor->group_size;

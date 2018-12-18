@@ -24,7 +24,9 @@ footer {
     background-color: #D4DDF7;
 }
 
-
+.alertmsg {
+    color: red;
+}
 /* shrink the alert box */
 .alert {
     padding-bottom: 0;

@@ -4,6 +4,8 @@
 @section('content')
 
     <h2> Your Reservation for EIC Visitor Day </h2>
+
+    <!-- form to edit a reservation -->
     <div class="row">
         <div class="col-sm-6">
             <form method='POST' action='/visitors/{{ $visitor->id }}'>
@@ -20,7 +22,8 @@
                            name='groupname'
                            id='groupname'
                            size='30'
-                           value='{{ old('groupname', $visitor->group_name) }}'>
+                           value='{{ old('groupname', $visitor->group_name) }}'
+                           required>
                     @include('modules.fielderrormsg', ['field' => 'groupname'])
                 </div>
                 <div class="form-group row">
@@ -28,13 +31,14 @@
                     <input type='number'
                            name='groupsize'
                            id='groupsize'
+                           required
                            value='{{ old('groupsize', $visitor->group_size) }}'>
                     @include('modules.fielderrormsg', ['field' => 'groupsize'])
                 </div>
                 @include('modules.fielderrormsg', ['field' => 'boattimes'])
                 <div class="form-group row">
                     <label for='toschedule_id'>* Boat departing from the Mainland: </label>
-                    <select name='toschedule_id'>
+                    <select name='toschedule_id' required>
                         <option
                                 value='{{$visitor->schedules[0]->id}}'>{{\Carbon\Carbon::
                             parse( $visitor->schedules[0]->departure_time)->format('g:i a')}}
@@ -49,7 +53,7 @@
                         @endforeach
                     </select>
                 </div>
-                <div class="form-group row">
+                <div class="form-group row" required>
                     <label for='toschedule_id'>* Boat returning to the Mainland: </label>
                     <select name='fromschedule_id'>
                         <option
@@ -75,8 +79,10 @@
                     <input type='submit' value='Cancel' class='btn btn-warning'>
                 </div>
             </form>
-            <div class='alertmsg'> * required field</div>
+            <div class='alertmsg'> * signifies a required field</div>
         </div>
+
+        <!-- put up a list of boat runs and remaining capacity to help with selecting timess -->
         <div class="col-sm-6">
             <table class="table table-sm table-bordered table-striped">
                 <thead class="thead-dark">

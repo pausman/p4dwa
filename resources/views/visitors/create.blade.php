@@ -3,15 +3,19 @@
 
 @section('content')
 
+    <!-- form to create a reservation -->
     <h2> Create Your Reservation for EIC Visitor Day </h2>
     <div class="row">
         <div class="col-sm-6">
             <form method='POST' action='/visitors'>
+
+                <!--display any validate errors-->
                 @if(count($errors) > 0)
                     <div class='alertmsg'>
                         Please correct the errors below.
                     </div>
                 @endif
+
                 {{ csrf_field() }}
                 <div class="form-group row">
                     <label for='groupname'>* Group Name: </label>
@@ -19,7 +23,8 @@
                            name='groupname'
                            id='groupname'
                            size='30'
-                           value='{{ old('groupname') }}'>
+                           value='{{ old('groupname') }}'
+                           required>
                     @include('modules.fielderrormsg', ['field' => 'groupname'])
                 </div>
                 <div class="form-group row">
@@ -27,13 +32,14 @@
                     <input type='number'
                            name='groupsize'
                            id='groupsize'
-                           value='{{ old('groupsize') }}'>
+                           value='{{ old('groupsize') }}'
+                           required>
                     @include('modules.fielderrormsg', ['field' => 'groupsize'])
                 </div>
                 @include('modules.fielderrormsg', ['field' => 'boattimes'])
                 <div class="form-group row">
                     <label for='toschedule_id'>* Boat departing from the Mainland: </label>
-                    <select name='toschedule_id'>
+                    <select name='toschedule_id' required>
                         <option value=''>Choose one...</option>
                         @foreach($toschedules as $toschedule)
                             <option
@@ -48,7 +54,7 @@
                 <div class="form-group row">
                     <label for='toschedule_id'>* Boat returning to the Mainland: </label>
 
-                    <select name='fromschedule_id'>
+                    <select name='fromschedule_id' required>
                         <option value=''>Choose one...</option>
                         @foreach($fromschedules as $fromschedule)
                             <option
@@ -64,13 +70,17 @@
                     <input type='submit' value='Save changes' class='btn btn-success'>
                 </div>
             </form>
+
+            <!--allow them to cancel -->
             <form method='GET' action='/visitors'>
                 <div class="form-group row">
                     <input type='submit' value='Cancel' class='btn btn-warning'>
                 </div>
             </form>
-            <div class='alertmsg'> * required field</div>
+            <div class='alertmsg'> * signifies a required field</div>
         </div>
+
+        <!-- show a schedule of boot runs and remain capacity -->
         <div class="col-sm-6">
             <table class="table table-sm table-bordered table-striped">
                 <thead class="thead-dark">

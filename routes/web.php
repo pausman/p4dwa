@@ -13,11 +13,12 @@
 
 Route::get('/visitors/create', 'VisitorController@create');
 Route::group(['middleware' => 'auth'], function () {
-// Route for main home page - view your reservation or create one
-    Route::get('/', 'VisitorController@index');
+//  welcome or login page
+    Route::get('/', 'WelcomeController');
+// show all your reservation
     Route::get('/visitors', 'VisitorController@index');
 
-// Route to show routes for a user
+// Route to show one reservation
     Route::get('/visitors/{id}', 'VisitorController@show');
 
 // edit routes
