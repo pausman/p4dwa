@@ -40,7 +40,8 @@
                     <label for='tochedule_id'>* Boat departing from the Mainland: </label>
                     <select name='toschedule_id' id='tochedule_id' required>
                         <option
-                                value='{{$visitor->schedules[0]->id}}'>{{\Carbon\Carbon::
+                                value='{{$visitor->schedules[0]->id}}'>
+                                {{\Carbon\Carbon::
                             parse( $visitor->schedules[0]->departure_time)->format('g:i a')}}
                         </option>
                         @foreach($toschedules as $toschedule)
@@ -53,9 +54,9 @@
                         @endforeach
                     </select>
                 </div>
-                <div class="form-group row" required>
+                <div class="form-group row">
                     <label for='fromschedule_id'>* Boat returning to the Mainland: </label>
-                    <select name='fromschedule_id' id='fromschedule_id'>
+                    <select name='fromschedule_id' id='fromschedule_id' required>
                         <option
                                 value='{{$visitor->schedules[1]->id}}'>
                             {{\Carbon\Carbon::parse( $visitor->schedules[1]->departure_time)->format('g:i a')}}
