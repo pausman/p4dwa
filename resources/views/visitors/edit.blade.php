@@ -37,8 +37,8 @@
                 </div>
                 @include('modules.fielderrormsg', ['field' => 'boattimes'])
                 <div class="form-group row">
-                    <label for='toschedule_id'>* Boat departing from the Mainland: </label>
-                    <select name='toschedule_id' required>
+                    <label for='tochedule_id'>* Boat departing from the Mainland: </label>
+                    <select name='toschedule_id' id='tochedule_id'required>
                         <option
                                 value='{{$visitor->schedules[0]->id}}'>{{\Carbon\Carbon::
                             parse( $visitor->schedules[0]->departure_time)->format('g:i a')}}
@@ -54,8 +54,8 @@
                     </select>
                 </div>
                 <div class="form-group row" required>
-                    <label for='toschedule_id'>* Boat returning to the Mainland: </label>
-                    <select name='fromschedule_id'>
+                    <label for='fromschedule_id'>* Boat returning to the Mainland: </label>
+                    <select name='fromschedule_id' id='fromschedule_id'>
                         <option
                                 value='{{$visitor->schedules[1]->id}}'>
                             {{\Carbon\Carbon::parse( $visitor->schedules[1]->departure_time)->format('g:i a')}}
