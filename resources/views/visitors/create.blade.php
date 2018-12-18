@@ -39,7 +39,7 @@
                 @include('modules.fielderrormsg', ['field' => 'boattimes'])
                 <div class="form-group row">
                     <label for='toschedule_id'>* Boat departing from the Mainland: </label>
-                    <select name='toschedule_id' id='toschedule_id'required>
+                    <select name='toschedule_id' id='toschedule_id' required>
                         <option value=''>Choose one...</option>
                         @foreach($toschedules as $toschedule)
                             <option
